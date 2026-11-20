@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+coverage/
+.env*
+!.env.example
+playwright-report/
+test-results/
+학생등록_양식.xlsx
