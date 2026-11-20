@@ -280,8 +280,9 @@ begin
         where course_id = v_course_id and canceled_at is null;
       if v_capacity_count >= v_course.capacity then perform private.raise_error('COURSE_FULL'); end if;
 
-      select count(*) into v_active_count from private.registrations
-        where student_id = v_student.id and canceled_at is null;
+      select count(*) into v_active_count
+        from private.registrations r join private.courses c on c.id = r.course_id
+        where r.student_id = v_student.id and r.canceled_at is null and c.deleted_at is null;
       select total_limit into v_total_limit from private.settings where singleton;
       if v_active_count >= v_total_limit then perform private.raise_error('TOTAL_LIMIT'); end if;
       select * into v_category from private.categories where id = v_course.category_id;
