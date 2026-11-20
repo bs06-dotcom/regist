@@ -40,7 +40,7 @@ export default function AdminPanel() {
   const [user, setUser] = useState<User | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
   const [authMode, setAuthMode] = useState<"login" | "signup">("login");
-  const [authEmail, setAuthEmail] = useState("bs06@ogeum.ms.kr");
+  const [authEmail, setAuthEmail] = useState("");
   const [authPassword, setAuthPassword] = useState("");
   const [tab, setTab] = useState<Tab>("courses");
   const [courses, setCourses] = useState<Course[]>([]);
